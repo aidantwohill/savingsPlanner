@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Savings Goals</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div>
+        <h1>Savings Goals</h1>
+        <p>Create, track, and reach your financial goals — local-first and private.</p>
+      </div>
+      <div class="muted">Local storage • No account required</div>
+    </header>
+
+    <div id="main" class="layout">
+      <section class="card" aria-labelledby="manage-heading">
+        <h2 id="manage-heading" style="margin:0 0 8px 0;font-size:1rem">Manage Goals</h2>
+
+        <form id="goalForm" aria-describedby="form-desc" novalidate>
+          <p id="form-desc" class="muted" style="margin:0 0 12px 0">Add a new savings goal to track progress and
+            deposits.</p>
+
+          <div class="form-grid">
+            <div>
+              <label for="title">Goal name</label>
+              <input id="title" name="title" type="text" required placeholder="Emergency fund">
+            </div>
+
+            <div>
+              <label for="date">Target date</label>
+              <input id="date" name="date" type="date">
+            </div>
+
+            <div>
+              <label for="target">Target amount (USD)</label>
+              <input id="target" name="target" type="number" min="0" step="0.01" required placeholder="1000">
+            </div>
+
+            <div>
+              <label for="saved">Saved so far (USD)</label>
+              <input id="saved" name="saved" type="number" min="0" step="0.01" value="0">
+            </div>
+
+            <div>
+              <label for="interest">Interest rate (%)</label>
+              <input id="interest" name="interest" type="number" step="0.01" value="0">
+            </div>
+
+            <div>
+              <label for="rate_period">Rate period</label>
+              <select id="rate_period" name="rate_period">
+                <option value="yearly">Yearly</option>
+                <option value="monthly">Monthly</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="controls" style="margin-top:12px">
+            <button type="button" id="clearAll" class="btn ghost small">Clear All</button>
+            <button type="submit" class="btn small">Add Goal</button>
+          </div>
+        </form>
+
+        <section aria-live="polite" style="margin-top:16px">
+          <h3 style="margin:0 0 8px 0;font-size:0.95rem">Your Goals</h3>
+          <div id="goalList" class="goal-list"></div>
+        </section>
+      </section>
+
+      <!-- Summary tab removed -->
+    </div>
+
+    <footer>
+      Built for focused saving • Local-first data stored in your browser
+    </footer>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+
+</html>
